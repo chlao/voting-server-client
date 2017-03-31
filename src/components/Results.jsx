@@ -36,6 +36,10 @@ export class Results extends React.PureComponent {
                   onClick={this.props.next}>
             Next
           </button>
+          <button className="reset_vote"
+                  onClick={this.props.resetVote}>
+            Reset Votes
+          </button>
         </div>
       </div>;
   }

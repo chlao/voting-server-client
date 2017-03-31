@@ -29,9 +29,7 @@ import {ResultsContainer} from './components/Results';
 
 // io can be used to connet to a Socket.io server
 const socket = io(`${location.protocol}//${location.hostname}:8090`);
-socket.on('state', state =>
-  store.dispatch(setState(state))
-);
+
 // Set client id upon entering page
 
 const createStoreWithMiddleware = applyMiddleware(
@@ -39,6 +37,10 @@ const createStoreWithMiddleware = applyMiddleware(
 )(createStore);
 const store = createStoreWithMiddleware(reducer);
 store.dispatch(setClientId(getClientId()));
+
+socket.on('state', state =>
+  store.dispatch(setState(state))
+);
 
 const routes = <div>
   <Route path="/results" component={ResultsContainer} />
