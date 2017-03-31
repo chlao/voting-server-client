@@ -13,7 +13,10 @@ export default socket => store => next => action => {
   // Not appropriate to send each and every action to the server; some actions should be handled locally in the client
   // Can extend the middleware to send onlt certain actions to the server
   if (action.meta && action.meta.remote){
-    socket.emit('action', action);
+    // socket.emit('action', action);
+    const clientId = store.getState().get('clientId');
+    var actionWithClientId = Object.assign({}, action, {clientId});
+    socket.emit('action', actionWithClientId);
   }
   // Next: callback middleware should call when it has done its work
   return next(action);
