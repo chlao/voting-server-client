@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import Winner from './Winner';
-import * as actionCreators from '../action_creators';
+import Management from './Management';
 
 // PureComponent does shallow comparison so changes inside props or state will be ignored
 export class Results extends React.PureComponent {
@@ -30,17 +30,7 @@ export class Results extends React.PureComponent {
           </div>
         )}
         </div>
-        <div className="management">
-          <button ref="next"
-                  className="next"
-                  onClick={this.props.next}>
-            Next
-          </button>
-          <button className="reset_vote"
-                  onClick={this.props.resetVote}>
-            Reset Votes
-          </button>
-        </div>
+        <Management />
       </div>;
   }
   // shouldComponentUpdate(nextProps, nextState)
@@ -56,6 +46,5 @@ function mapStateToProps(state) {
 }
 
 export const ResultsContainer = connect(
-  mapStateToProps,
-  actionCreators
+  mapStateToProps
 )(Results);
