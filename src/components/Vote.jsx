@@ -11,10 +11,6 @@ export default React.createClass({
     return this.props.hasVoted;
   },
 
-  updateYourVote: function(){
-
-  },
-
   // {this.hasVotedFor(entry) ?
   //   <div className="label">Voted</div> :
   // null}
