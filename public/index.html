@@ -4,6 +4,21 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <style>
+      [class^='connection__status']{
+        width: 2vh;
+        height: 2vh;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 5px;
+      }
+      .connection__status--connected{
+        background-color: green;
+      }
+      .connection__status--disconnected{
+        background-color: red;
+      }
+    </style>
     <!--
       Notice the use of %PUBLIC_URL% in the tag above.
       It will be replaced with the URL of the `public` folder during the build.

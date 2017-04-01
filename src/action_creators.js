@@ -33,3 +33,11 @@ export function resetVote(){
     type: 'RESET_VOTE'
   }
 }
+
+export function setConnectionStatus(ev, status){
+  return {
+    type: 'CONNECTION_STATUS',
+    ev, 
+    status
+  }
+}

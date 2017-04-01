@@ -31,6 +31,11 @@ function setClientId(state, clientId){
   return state.set('clientId', clientId);
 }
 
+function setConnectionStatus(state, ev, status){
+  return state.setIn(['connectionStatus', 'status'], status)
+              .setIn(['connectionStatus', 'event'], ev);
+}
+
 export default function(state = Map(), action){
   switch(action.type){
     case 'SET_STATE':
@@ -39,6 +44,9 @@ export default function(state = Map(), action){
       return vote(state, action.entry);
     case 'SET_CLIENT_ID':
       return setClientId(state, action.clientId);
+    case 'CONNECTION_STATUS':
+      console.log()
+      return setConnectionStatus(state, action.ev, action.status);
     default:
       return state;
   }
