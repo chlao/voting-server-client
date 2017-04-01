@@ -11,6 +11,10 @@ export default React.createClass({
     return this.props.hasVoted;
   },
 
+  updateYourVote: function(){
+
+  },
+
   // {this.hasVotedFor(entry) ?
   //   <div className="label">Voted</div> :
   // null}
@@ -22,6 +26,8 @@ export default React.createClass({
           <h1>{entry}</h1>
         </button>
       )}
+      {this.props.hasVoted ?
+        <div> Your Vote: {this.props.hasVoted} </div> : null }
     </div>;
   }
 });
